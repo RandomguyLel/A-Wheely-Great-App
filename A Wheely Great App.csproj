@@ -88,6 +88,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\cogwheel.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\pencil.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
