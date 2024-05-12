@@ -243,6 +243,7 @@
             this.LabelTitle.Size = new System.Drawing.Size(157, 37);
             this.LabelTitle.TabIndex = 2;
             this.LabelTitle.Text = "Dashboard";
+            this.LabelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LabelTitle_MouseDown);
             // 
             // HeaderPanel
             // 

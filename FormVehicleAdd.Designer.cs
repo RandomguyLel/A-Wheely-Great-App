@@ -28,66 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxVehicleType = new System.Windows.Forms.TextBox();
+            this.textBoxPlateNumber = new System.Windows.Forms.TextBox();
+            this.textBoxRegAplNr = new System.Windows.Forms.TextBox();
             this.LabelVehicleType = new System.Windows.Forms.Label();
             this.LabelVehiclePlate = new System.Windows.Forms.Label();
             this.LabelVehicleRegAplNr = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.LabelVehicleOctaDate = new System.Windows.Forms.Label();
             this.LabelVehicleTaDate = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonAddVehicle = new System.Windows.Forms.Button();
+            this.dateTimeOcta = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeTa = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxVehicleType
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Menu;
-            this.textBox1.Location = new System.Drawing.Point(490, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 26);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "Test";
+            this.textBoxVehicleType.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBoxVehicleType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxVehicleType.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxVehicleType.ForeColor = System.Drawing.SystemColors.Menu;
+            this.textBoxVehicleType.Location = new System.Drawing.Point(490, 71);
+            this.textBoxVehicleType.Name = "textBoxVehicleType";
+            this.textBoxVehicleType.Size = new System.Drawing.Size(171, 26);
+            this.textBoxVehicleType.TabIndex = 0;
+            this.textBoxVehicleType.Text = "Test";
             // 
-            // textBox2
+            // textBoxPlateNumber
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.Menu;
-            this.textBox2.Location = new System.Drawing.Point(490, 134);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(171, 26);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.Text = "Test";
+            this.textBoxPlateNumber.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBoxPlateNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPlateNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPlateNumber.ForeColor = System.Drawing.SystemColors.Menu;
+            this.textBoxPlateNumber.Location = new System.Drawing.Point(490, 134);
+            this.textBoxPlateNumber.Name = "textBoxPlateNumber";
+            this.textBoxPlateNumber.Size = new System.Drawing.Size(171, 26);
+            this.textBoxPlateNumber.TabIndex = 0;
+            this.textBoxPlateNumber.Text = "Test";
             // 
-            // textBox3
+            // textBoxRegAplNr
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.SystemColors.Menu;
-            this.textBox3.Location = new System.Drawing.Point(490, 203);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(171, 26);
-            this.textBox3.TabIndex = 0;
-            this.textBox3.Text = "Test";
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.SystemColors.Menu;
-            this.textBox4.Location = new System.Drawing.Point(490, 266);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(171, 26);
-            this.textBox4.TabIndex = 0;
-            this.textBox4.Text = "Test";
+            this.textBoxRegAplNr.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBoxRegAplNr.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRegAplNr.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegAplNr.ForeColor = System.Drawing.SystemColors.Menu;
+            this.textBoxRegAplNr.Location = new System.Drawing.Point(490, 203);
+            this.textBoxRegAplNr.Name = "textBoxRegAplNr";
+            this.textBoxRegAplNr.Size = new System.Drawing.Size(171, 26);
+            this.textBoxRegAplNr.TabIndex = 0;
+            this.textBoxRegAplNr.Text = "Test";
             // 
             // LabelVehicleType
             // 
@@ -128,18 +116,6 @@
             this.LabelVehicleRegAplNr.Text = "Input Vehicle Reg Apl Nr";
             this.LabelVehicleRegAplNr.Click += new System.EventHandler(this.LabelVehicleType_Click);
             // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.SystemColors.Menu;
-            this.textBox5.Location = new System.Drawing.Point(490, 329);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(171, 26);
-            this.textBox5.TabIndex = 0;
-            this.textBox5.Text = "Test";
-            // 
             // LabelVehicleOctaDate
             // 
             this.LabelVehicleOctaDate.AutoSize = true;
@@ -166,19 +142,40 @@
             this.LabelVehicleTaDate.Text = "Input Vehicle TA Due Date";
             this.LabelVehicleTaDate.Click += new System.EventHandler(this.LabelVehicleType_Click);
             // 
-            // button4
+            // buttonAddVehicle
             // 
-            this.button4.BackColor = System.Drawing.Color.OliveDrab;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Honeydew;
-            this.button4.Location = new System.Drawing.Point(172, 376);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(448, 33);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Pievienot Transportu";
-            this.button4.UseVisualStyleBackColor = false;
+            this.buttonAddVehicle.BackColor = System.Drawing.Color.OliveDrab;
+            this.buttonAddVehicle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.buttonAddVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddVehicle.ForeColor = System.Drawing.Color.Honeydew;
+            this.buttonAddVehicle.Location = new System.Drawing.Point(172, 376);
+            this.buttonAddVehicle.Name = "buttonAddVehicle";
+            this.buttonAddVehicle.Size = new System.Drawing.Size(448, 33);
+            this.buttonAddVehicle.TabIndex = 8;
+            this.buttonAddVehicle.Text = "Pievienot Transportu";
+            this.buttonAddVehicle.UseVisualStyleBackColor = false;
+            this.buttonAddVehicle.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // dateTimeOcta
+            // 
+            this.dateTimeOcta.CalendarMonthBackground = System.Drawing.SystemColors.InactiveBorder;
+            this.dateTimeOcta.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeOcta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeOcta.Location = new System.Drawing.Point(490, 259);
+            this.dateTimeOcta.Name = "dateTimeOcta";
+            this.dateTimeOcta.Size = new System.Drawing.Size(200, 34);
+            this.dateTimeOcta.TabIndex = 9;
+            // 
+            // dateTimeTa
+            // 
+            this.dateTimeTa.CalendarMonthBackground = System.Drawing.SystemColors.InactiveBorder;
+            this.dateTimeTa.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeTa.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeTa.Location = new System.Drawing.Point(490, 319);
+            this.dateTimeTa.Name = "dateTimeTa";
+            this.dateTimeTa.Size = new System.Drawing.Size(200, 34);
+            this.dateTimeTa.TabIndex = 9;
             // 
             // FormVehicleAdd
             // 
@@ -186,17 +183,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.dateTimeTa);
+            this.Controls.Add(this.dateTimeOcta);
+            this.Controls.Add(this.buttonAddVehicle);
             this.Controls.Add(this.LabelVehicleTaDate);
             this.Controls.Add(this.LabelVehicleOctaDate);
             this.Controls.Add(this.LabelVehicleRegAplNr);
             this.Controls.Add(this.LabelVehiclePlate);
             this.Controls.Add(this.LabelVehicleType);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxRegAplNr);
+            this.Controls.Add(this.textBoxPlateNumber);
+            this.Controls.Add(this.textBoxVehicleType);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormVehicleAdd";
             this.Text = "FormVehicleAdd";
@@ -207,16 +204,16 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxVehicleType;
+        private System.Windows.Forms.TextBox textBoxPlateNumber;
+        private System.Windows.Forms.TextBox textBoxRegAplNr;
         private System.Windows.Forms.Label LabelVehicleType;
         private System.Windows.Forms.Label LabelVehiclePlate;
         private System.Windows.Forms.Label LabelVehicleRegAplNr;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label LabelVehicleOctaDate;
         private System.Windows.Forms.Label LabelVehicleTaDate;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonAddVehicle;
+        private System.Windows.Forms.DateTimePicker dateTimeOcta;
+        private System.Windows.Forms.DateTimePicker dateTimeTa;
     }
 }

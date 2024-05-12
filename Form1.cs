@@ -26,6 +26,11 @@ namespace A_Wheely_Great_App
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
+        public void DraggableWindow()
+        {
+            ReleaseCapture();
+            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+        }
         //Draggable Window without border end
 
         //Rounded edge stuff start
@@ -52,16 +57,16 @@ namespace A_Wheely_Great_App
             PnlNav.Top = btnDashboard.Top;
             PnlNav.Left = btnDashboard.Left;
             // btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
-
-                  
             
+
+
 
         }
 
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            btnDashboard.PerformClick();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -154,8 +159,7 @@ namespace A_Wheely_Great_App
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                DraggableWindow();
             }
         }
 
@@ -163,8 +167,7 @@ namespace A_Wheely_Great_App
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                DraggableWindow();
             }
         }
 
@@ -173,6 +176,14 @@ namespace A_Wheely_Great_App
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LabelTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DraggableWindow();
+            }
         }
     }
 }
