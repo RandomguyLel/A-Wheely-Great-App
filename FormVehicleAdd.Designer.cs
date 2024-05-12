@@ -51,31 +51,30 @@
             this.textBoxVehicleType.Name = "textBoxVehicleType";
             this.textBoxVehicleType.Size = new System.Drawing.Size(171, 26);
             this.textBoxVehicleType.TabIndex = 0;
-            this.textBoxVehicleType.Text = "Test";
             // 
             // textBoxPlateNumber
             // 
             this.textBoxPlateNumber.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBoxPlateNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPlateNumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxPlateNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPlateNumber.ForeColor = System.Drawing.SystemColors.Menu;
             this.textBoxPlateNumber.Location = new System.Drawing.Point(490, 134);
             this.textBoxPlateNumber.Name = "textBoxPlateNumber";
             this.textBoxPlateNumber.Size = new System.Drawing.Size(171, 26);
             this.textBoxPlateNumber.TabIndex = 0;
-            this.textBoxPlateNumber.Text = "Test";
             // 
             // textBoxRegAplNr
             // 
             this.textBoxRegAplNr.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBoxRegAplNr.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRegAplNr.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxRegAplNr.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRegAplNr.ForeColor = System.Drawing.SystemColors.Menu;
             this.textBoxRegAplNr.Location = new System.Drawing.Point(490, 203);
             this.textBoxRegAplNr.Name = "textBoxRegAplNr";
             this.textBoxRegAplNr.Size = new System.Drawing.Size(171, 26);
             this.textBoxRegAplNr.TabIndex = 0;
-            this.textBoxRegAplNr.Text = "Test";
             // 
             // LabelVehicleType
             // 

@@ -40,9 +40,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.Button();
             this.LabelTitle = new System.Windows.Forms.Label();
             this.HeaderPanel = new System.Windows.Forms.Panel();
+            this.buttonTestLabel = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.PanelFormLoader = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -63,7 +64,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(186, 577);
+            this.panel1.Size = new System.Drawing.Size(186, 644);
             this.panel1.TabIndex = 0;
             // 
             // PnlNav
@@ -84,7 +85,7 @@
             this.btnSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(246)))));
             this.btnSettings.Image = global::A_Wheely_Great_App.Properties.Resources.cogwheel;
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSettings.Location = new System.Drawing.Point(0, 535);
+            this.btnSettings.Location = new System.Drawing.Point(0, 602);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(186, 42);
             this.btnSettings.TabIndex = 1;
@@ -217,21 +218,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(720, 12);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(25, 25);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.Text = "X";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // LabelTitle
             // 
             this.LabelTitle.AutoSize = true;
@@ -248,22 +234,44 @@
             // HeaderPanel
             // 
             this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(41)))), ((int)(((byte)(73)))));
+            this.HeaderPanel.Controls.Add(this.buttonTestLabel);
+            this.HeaderPanel.Controls.Add(this.button4);
             this.HeaderPanel.Controls.Add(this.LabelTitle);
-            this.HeaderPanel.Controls.Add(this.btnExit);
             this.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.HeaderPanel.Location = new System.Drawing.Point(186, 0);
             this.HeaderPanel.Name = "HeaderPanel";
-            this.HeaderPanel.Size = new System.Drawing.Size(765, 116);
+            this.HeaderPanel.Size = new System.Drawing.Size(1066, 116);
             this.HeaderPanel.TabIndex = 5;
             this.HeaderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.HeaderPanel_MouseDown);
             // 
+            // buttonTestLabel
+            // 
+            this.buttonTestLabel.Location = new System.Drawing.Point(533, 43);
+            this.buttonTestLabel.Name = "buttonTestLabel";
+            this.buttonTestLabel.Size = new System.Drawing.Size(203, 23);
+            this.buttonTestLabel.TabIndex = 3;
+            this.buttonTestLabel.Text = "Change Label from foreign form";
+            this.buttonTestLabel.UseVisualStyleBackColor = true;
+            this.buttonTestLabel.Click += new System.EventHandler(this.buttonTestLabel_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(583, 71);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(153, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "CheckMaintenance";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
             // PanelFormLoader
             // 
+            this.PanelFormLoader.AutoSize = true;
             this.PanelFormLoader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.PanelFormLoader.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanelFormLoader.Location = new System.Drawing.Point(186, 113);
+            this.PanelFormLoader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelFormLoader.Location = new System.Drawing.Point(186, 116);
             this.PanelFormLoader.Name = "PanelFormLoader";
-            this.PanelFormLoader.Size = new System.Drawing.Size(765, 464);
+            this.PanelFormLoader.Size = new System.Drawing.Size(1066, 528);
             this.PanelFormLoader.TabIndex = 6;
             // 
             // Form1
@@ -271,11 +279,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(951, 577);
+            this.ClientSize = new System.Drawing.Size(1252, 644);
             this.Controls.Add(this.PanelFormLoader);
             this.Controls.Add(this.HeaderPanel);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -289,6 +296,7 @@
             this.HeaderPanel.ResumeLayout(false);
             this.HeaderPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -303,12 +311,13 @@
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel PnlNav;
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label LabelTitle;
         private System.Windows.Forms.Panel HeaderPanel;
         private System.Windows.Forms.Panel PanelFormLoader;
+        private System.Windows.Forms.Button button4;
+        public System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonTestLabel;
     }
 }
 

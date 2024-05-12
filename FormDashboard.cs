@@ -37,7 +37,7 @@ namespace A_Wheely_Great_App
 
         public FormDashboard()
         {
-            InitializeComponent();
+            InitializeComponent(); 
 
             // Load vehicles from JSON file 
             try
@@ -131,5 +131,72 @@ namespace A_Wheely_Great_App
                 e.Handled = true;
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // If a delete button was clicked
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "GridButtonDelete")
+            {
+                // Get the Id of the vehicle to delete
+                var id = (string)dataGridView1.Rows[e.RowIndex].Cells["plateNumberDataGridViewTextBoxColumn"].Value;
+
+                // Delete the vehicle
+                DeleteVehicle(id);
+            }
+        }
+
+        private void DeleteVehicle(string id)
+        {
+            
+
+            // Find the vehicle in the list
+            var vehicle = vehicles.Vehicles.FirstOrDefault(v => v.PlateNumber == id);
+            DialogResult result = MessageBox.Show($"Do you really want to delete vehicle {vehicle.Type} {vehicle.PlateNumber}?", "Delete Vehicle", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                // If the vehicle was found, remove it from the list
+                if (vehicle != null)
+                {
+                    vehicles.Vehicles.Remove(vehicle);
+
+                    // Save the updated list of vehicles to the JSON file
+                    var json = JsonConvert.SerializeObject(vehicles, Formatting.Indented);
+                    File.WriteAllText("vehicles.json", json);
+                    Console.WriteLine($"{vehicle.Type} has been deleted");
+                    // Update the DataGridView
+                    dataGridView1.DataSource = null;
+                    dataGridView1.DataSource = vehicles.Vehicles;
+                }
+
+
+                else
+                {
+                    Console.WriteLine($"No vehicle found with PlateNumber {id}.");
+                }
+            }
+            else if (result == DialogResult.No)
+            {
+                MessageBox.Show("Vehicle was not deleted", "Delete Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonReminderAcknowledgement_Click(object sender, EventArgs e)
+        {
+            panelActiveReminder.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            labelSubMaintenance1.Text = "Added from local form";
+        }
     }
+    
 }
