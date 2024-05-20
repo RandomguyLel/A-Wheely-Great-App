@@ -14,6 +14,7 @@ using System.IO;
 using static A_Wheely_Great_App.FormDashboard;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
+using Microsoft.Toolkit.Uwp.Notifications;
 
 
 namespace A_Wheely_Great_App
@@ -123,7 +124,7 @@ namespace A_Wheely_Great_App
             PnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
 
-            LabelTitle.Text = "Dashboard";
+            LabelTitle.Text = "Vadības panelis";
             this.PanelFormLoader.Controls.Clear();
 
             if (FormDashboard_Vrb == null)
@@ -147,7 +148,7 @@ namespace A_Wheely_Great_App
             PnlNav.Top = button1.Top;
             button1.BackColor = Color.FromArgb(46, 51, 73);
 
-            LabelTitle.Text = "Add a Vehicle";
+            LabelTitle.Text = "Pievienot Transportlīdzekli";
             this.PanelFormLoader.Controls.Clear();
             FormVehicleAdd FormDashboard_Vrb = new FormVehicleAdd(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             FormDashboard_Vrb.FormBorderStyle = FormBorderStyle.None;
@@ -174,14 +175,14 @@ namespace A_Wheely_Great_App
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            LabelTitle.Text = "About";
+            LabelTitle.Text = "Par Aplikāciju";
             PnlNav.Height = btnAbout.Height;
             PnlNav.Top = btnAbout.Top;
             btnAbout.BackColor = Color.FromArgb(46, 51, 73);
             this.PanelFormLoader.Controls.Clear();
             var about = new Label
             {
-                Text = "A Wheeeeely Great app\nCreated as part of my internship thingy c:\n© Rik Solutions 2024",
+                Text = "Wheely Transportlīdzekļu Uzturēšanas Aplikācija\nIzveidota kā daļa no prakses darba :)\n© Ritvars Šakins 2024",
                 AutoSize = true,
                 Dock = DockStyle.Left,
                 Font = new Font("Sergoe UI", 15, FontStyle.Bold),
@@ -277,6 +278,11 @@ namespace A_Wheely_Great_App
         private void HeaderPanel_Click(object sender, EventArgs e)
         {
             formDashboard.ActiveControl = null;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
         }
         //private void buttonTestLabel_Click(object sender, EventArgs e)
         //{

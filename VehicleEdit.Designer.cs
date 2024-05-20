@@ -90,9 +90,9 @@
             this.LabelVehicleTaDate.ForeColor = System.Drawing.Color.Silver;
             this.LabelVehicleTaDate.Location = new System.Drawing.Point(99, 310);
             this.LabelVehicleTaDate.Name = "LabelVehicleTaDate";
-            this.LabelVehicleTaDate.Size = new System.Drawing.Size(274, 37);
+            this.LabelVehicleTaDate.Size = new System.Drawing.Size(378, 37);
             this.LabelVehicleTaDate.TabIndex = 13;
-            this.LabelVehicleTaDate.Text = "Vehicle TA Due Date";
+            this.LabelVehicleTaDate.Text = "Teh. Apskates Beigu Datums";
             // 
             // LabelVehicleOctaDate
             // 
@@ -102,9 +102,9 @@
             this.LabelVehicleOctaDate.ForeColor = System.Drawing.Color.Silver;
             this.LabelVehicleOctaDate.Location = new System.Drawing.Point(99, 247);
             this.LabelVehicleOctaDate.Name = "LabelVehicleOctaDate";
-            this.LabelVehicleOctaDate.Size = new System.Drawing.Size(311, 37);
+            this.LabelVehicleOctaDate.Size = new System.Drawing.Size(273, 37);
             this.LabelVehicleOctaDate.TabIndex = 14;
-            this.LabelVehicleOctaDate.Text = "Vehicle OCTA Due Date";
+            this.LabelVehicleOctaDate.Text = "OCTA Beigu Datums";
             // 
             // LabelVehicleRegAplNr
             // 
@@ -114,9 +114,9 @@
             this.LabelVehicleRegAplNr.ForeColor = System.Drawing.Color.Silver;
             this.LabelVehicleRegAplNr.Location = new System.Drawing.Point(99, 183);
             this.LabelVehicleRegAplNr.Name = "LabelVehicleRegAplNr";
-            this.LabelVehicleRegAplNr.Size = new System.Drawing.Size(254, 37);
+            this.LabelVehicleRegAplNr.Size = new System.Drawing.Size(362, 37);
             this.LabelVehicleRegAplNr.TabIndex = 15;
-            this.LabelVehicleRegAplNr.Text = "Vehicle Reg Apl Nr";
+            this.LabelVehicleRegAplNr.Text = "Reģistrācijas Apliecības Nr.";
             // 
             // LabelVehiclePlate
             // 
@@ -126,9 +126,9 @@
             this.LabelVehiclePlate.ForeColor = System.Drawing.Color.Silver;
             this.LabelVehiclePlate.Location = new System.Drawing.Point(99, 115);
             this.LabelVehiclePlate.Name = "LabelVehiclePlate";
-            this.LabelVehiclePlate.Size = new System.Drawing.Size(293, 37);
+            this.LabelVehiclePlate.Size = new System.Drawing.Size(287, 37);
             this.LabelVehiclePlate.TabIndex = 16;
-            this.LabelVehiclePlate.Text = "Vehicle Plate Number";
+            this.LabelVehiclePlate.Text = "Reģistrācijas Numurs";
             // 
             // LabelVehicleType
             // 
@@ -138,48 +138,48 @@
             this.LabelVehicleType.ForeColor = System.Drawing.Color.Silver;
             this.LabelVehicleType.Location = new System.Drawing.Point(99, 51);
             this.LabelVehicleType.Name = "LabelVehicleType";
-            this.LabelVehicleType.Size = new System.Drawing.Size(177, 37);
+            this.LabelVehicleType.Size = new System.Drawing.Size(397, 37);
             this.LabelVehicleType.TabIndex = 17;
-            this.LabelVehicleType.Text = "Vehicle Type";
+            this.LabelVehicleType.Text = "Transportlīdzekļa Nosaukums";
             // 
             // textBoxRegAplNr
             // 
             this.textBoxRegAplNr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxRegAplNr.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxRegAplNr.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRegAplNr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxRegAplNr.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxRegAplNr.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRegAplNr.ForeColor = System.Drawing.SystemColors.ControlText;
             this.textBoxRegAplNr.Location = new System.Drawing.Point(501, 194);
             this.textBoxRegAplNr.Name = "textBoxRegAplNr";
-            this.textBoxRegAplNr.Size = new System.Drawing.Size(171, 26);
+            this.textBoxRegAplNr.Size = new System.Drawing.Size(171, 33);
             this.textBoxRegAplNr.TabIndex = 3;
             // 
             // textBoxPlateNumber
             // 
             this.textBoxPlateNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPlateNumber.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxPlateNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPlateNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxPlateNumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxPlateNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPlateNumber.ForeColor = System.Drawing.SystemColors.ControlText;
             this.textBoxPlateNumber.Location = new System.Drawing.Point(501, 125);
             this.textBoxPlateNumber.MaxLength = 12;
             this.textBoxPlateNumber.Name = "textBoxPlateNumber";
-            this.textBoxPlateNumber.Size = new System.Drawing.Size(171, 26);
+            this.textBoxPlateNumber.Size = new System.Drawing.Size(171, 33);
             this.textBoxPlateNumber.TabIndex = 1;
             // 
             // textBoxVehicleType
             // 
             this.textBoxVehicleType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxVehicleType.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxVehicleType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxVehicleType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxVehicleType.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxVehicleType.ForeColor = System.Drawing.SystemColors.ControlText;
             this.textBoxVehicleType.Location = new System.Drawing.Point(501, 62);
             this.textBoxVehicleType.MaxLength = 150;
             this.textBoxVehicleType.Name = "textBoxVehicleType";
-            this.textBoxVehicleType.Size = new System.Drawing.Size(171, 26);
+            this.textBoxVehicleType.Size = new System.Drawing.Size(171, 33);
             this.textBoxVehicleType.TabIndex = 0;
             // 
             // VehicleEdit
@@ -200,7 +200,7 @@
             this.Controls.Add(this.LabelVehiclePlate);
             this.Controls.Add(this.LabelVehicleType);
             this.Name = "VehicleEdit";
-            this.Text = "VehicleEdit";
+            this.Text = "Transportlīdzekļa datu maiņa";
             this.ResumeLayout(false);
             this.PerformLayout();
 

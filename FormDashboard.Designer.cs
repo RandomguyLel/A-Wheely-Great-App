@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.GridButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.GridButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vehicleListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panelActiveReminder = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,14 +49,15 @@
             this.regAplNrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.octaDueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taDueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vehicleListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.GridButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.GridButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleListBindingSource)).BeginInit();
             this.panelActiveReminder.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -69,14 +70,14 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.typeDataGridViewTextBoxColumn,
@@ -87,14 +88,14 @@
             this.GridButtonEdit,
             this.GridButtonDelete});
             this.dataGridView1.DataSource = this.vehiclesBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(41)))), ((int)(((byte)(73)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Open Sans Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(41)))), ((int)(((byte)(73)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Open Sans Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
@@ -104,36 +105,30 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1168, 419);
+            this.dataGridView1.Size = new System.Drawing.Size(1168, 416);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting_1);
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
-            // GridButtonEdit
+            // vehiclesBindingSource
             // 
-            this.GridButtonEdit.FillWeight = 25F;
-            this.GridButtonEdit.HeaderText = "";
-            this.GridButtonEdit.Name = "GridButtonEdit";
-            this.GridButtonEdit.ReadOnly = true;
-            this.GridButtonEdit.Text = "Edit";
+            this.vehiclesBindingSource.DataMember = "Vehicles";
+            this.vehiclesBindingSource.DataSource = this.vehicleListBindingSource;
+            this.vehiclesBindingSource.CurrentChanged += new System.EventHandler(this.vehiclesBindingSource_CurrentChanged);
             // 
-            // GridButtonDelete
+            // vehicleListBindingSource
             // 
-            this.GridButtonDelete.FillWeight = 25F;
-            this.GridButtonDelete.HeaderText = "";
-            this.GridButtonDelete.Name = "GridButtonDelete";
-            this.GridButtonDelete.ReadOnly = true;
-            this.GridButtonDelete.Text = "Delete";
+            this.vehicleListBindingSource.DataSource = typeof(A_Wheely_Great_App.FormDashboard.VehicleList);
             // 
             // textBoxSearch
             // 
@@ -145,7 +140,7 @@
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(1125, 23);
             this.textBoxSearch.TabIndex = 0;
-            this.textBoxSearch.Text = "Search for Vehicles";
+            this.textBoxSearch.Text = "Meklēt Transportlīdzekļus";
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             this.textBoxSearch.Enter += new System.EventHandler(this.textBoxSearch_Enter);
             this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_Leave);
@@ -203,9 +198,10 @@
             this.LabelTitleReminder.ForeColor = System.Drawing.Color.Black;
             this.LabelTitleReminder.Location = new System.Drawing.Point(0, 23);
             this.LabelTitleReminder.Name = "LabelTitleReminder";
-            this.LabelTitleReminder.Size = new System.Drawing.Size(368, 32);
+            this.LabelTitleReminder.Size = new System.Drawing.Size(251, 32);
             this.LabelTitleReminder.TabIndex = 3;
-            this.LabelTitleReminder.Text = "Active Maintenance Reminders";
+            this.LabelTitleReminder.Text = "Aktīvie atgādinājumi";
+            this.LabelTitleReminder.MouseHover += new System.EventHandler(this.LabelTitleReminder_MouseHover);
             // 
             // buttonReminderAcknowledgement
             // 
@@ -215,7 +211,7 @@
             this.buttonReminderAcknowledgement.Name = "buttonReminderAcknowledgement";
             this.buttonReminderAcknowledgement.Size = new System.Drawing.Size(1168, 23);
             this.buttonReminderAcknowledgement.TabIndex = 2;
-            this.buttonReminderAcknowledgement.Text = "Indeed i do be Understand";
+            this.buttonReminderAcknowledgement.Text = "Esmu iepazinies ar šo informāciju";
             this.buttonReminderAcknowledgement.UseVisualStyleBackColor = true;
             this.buttonReminderAcknowledgement.Click += new System.EventHandler(this.buttonReminderAcknowledgement_Click);
             // 
@@ -223,12 +219,12 @@
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button4.Font = new System.Drawing.Font("Open Sans Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(0, 559);
+            this.button4.Location = new System.Drawing.Point(0, 556);
             this.button4.Margin = new System.Windows.Forms.Padding(5);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(1168, 25);
+            this.button4.Size = new System.Drawing.Size(1168, 28);
             this.button4.TabIndex = 4;
-            this.button4.Text = "CheckMaintenance";
+            this.button4.Text = "Veikt Transportlīdzekļu Pārbaudi";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -259,47 +255,58 @@
             // 
             this.typeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Transportlīdzeklis";
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             this.typeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // plateNumberDataGridViewTextBoxColumn
             // 
             this.plateNumberDataGridViewTextBoxColumn.DataPropertyName = "PlateNumber";
-            this.plateNumberDataGridViewTextBoxColumn.HeaderText = "PlateNumber";
+            this.plateNumberDataGridViewTextBoxColumn.HeaderText = "Reģistrācijas Numurs";
             this.plateNumberDataGridViewTextBoxColumn.Name = "plateNumberDataGridViewTextBoxColumn";
             this.plateNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // regAplNrDataGridViewTextBoxColumn
             // 
             this.regAplNrDataGridViewTextBoxColumn.DataPropertyName = "RegAplNr";
-            this.regAplNrDataGridViewTextBoxColumn.HeaderText = "RegAplNr";
+            this.regAplNrDataGridViewTextBoxColumn.HeaderText = "Reģ. Apliecības Nr.";
             this.regAplNrDataGridViewTextBoxColumn.Name = "regAplNrDataGridViewTextBoxColumn";
             this.regAplNrDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // octaDueDateDataGridViewTextBoxColumn
             // 
             this.octaDueDateDataGridViewTextBoxColumn.DataPropertyName = "OctaDueDate";
-            this.octaDueDateDataGridViewTextBoxColumn.HeaderText = "OctaDueDate";
+            this.octaDueDateDataGridViewTextBoxColumn.HeaderText = "OCTA Derīga līdz";
             this.octaDueDateDataGridViewTextBoxColumn.Name = "octaDueDateDataGridViewTextBoxColumn";
             this.octaDueDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // taDueDateDataGridViewTextBoxColumn
             // 
             this.taDueDateDataGridViewTextBoxColumn.DataPropertyName = "TaDueDate";
-            this.taDueDateDataGridViewTextBoxColumn.HeaderText = "TaDueDate";
+            this.taDueDateDataGridViewTextBoxColumn.HeaderText = "TA Derīga līdz";
             this.taDueDateDataGridViewTextBoxColumn.Name = "taDueDateDataGridViewTextBoxColumn";
             this.taDueDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // vehiclesBindingSource
+            // GridButtonEdit
             // 
-            this.vehiclesBindingSource.DataMember = "Vehicles";
-            this.vehiclesBindingSource.DataSource = this.vehicleListBindingSource;
-            this.vehiclesBindingSource.CurrentChanged += new System.EventHandler(this.vehiclesBindingSource_CurrentChanged);
+            this.GridButtonEdit.FillWeight = 25F;
+            this.GridButtonEdit.HeaderText = "";
+            this.GridButtonEdit.Name = "GridButtonEdit";
+            this.GridButtonEdit.ReadOnly = true;
+            this.GridButtonEdit.Text = "Edit";
             // 
-            // vehicleListBindingSource
+            // GridButtonDelete
             // 
-            this.vehicleListBindingSource.DataSource = typeof(A_Wheely_Great_App.FormDashboard.VehicleList);
+            this.GridButtonDelete.FillWeight = 25F;
+            this.GridButtonDelete.HeaderText = "";
+            this.GridButtonDelete.Name = "GridButtonDelete";
+            this.GridButtonDelete.ReadOnly = true;
+            this.GridButtonDelete.Text = "Delete";
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip1.ToolTipTitle = " - Veikt pārbaudi visiem transportlīdzekļiem";
             // 
             // FormDashboard
             // 
@@ -317,13 +324,13 @@
             this.Text = "FormDashboard";
             this.Shown += new System.EventHandler(this.FormDashboard_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleListBindingSource)).EndInit();
             this.panelActiveReminder.ResumeLayout(false);
             this.panelActiveReminder.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,6 +346,10 @@
         public System.Windows.Forms.Panel panelActiveReminder;
         private System.Windows.Forms.Button buttonReminderAcknowledgement;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn plateNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn regAplNrDataGridViewTextBoxColumn;
@@ -346,9 +357,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn taDueDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn GridButtonEdit;
         private System.Windows.Forms.DataGridViewButtonColumn GridButtonDelete;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

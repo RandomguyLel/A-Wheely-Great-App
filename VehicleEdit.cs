@@ -33,13 +33,13 @@ namespace A_Wheely_Great_App
         private void buttonEditVehicle_Click(object sender, EventArgs e)
         {
 
-            DialogResult result = MessageBox.Show($"The following changes will be made:\n" +
-                $"Type: {vehicle.Type} --> {textBoxVehicleType.Text}\n" +
-                $"Plate Nr.: {vehicle.PlateNumber} --> {textBoxPlateNumber.Text}\n" +
-                $"Reg Apl Nr.: {vehicle.RegAplNr} --> {textBoxRegAplNr.Text}\n" +
-                $"OCTA Due Date: {vehicle.OctaDueDate.ToShortDateString()} --> {dateTimeOcta.Value.ToShortDateString()}\n" +
-                $"TA Due Date: {vehicle.TaDueDate.ToShortDateString()} --> {dateTimeTa.Value.ToShortDateString()}\n" +
-                $"Do You Wish to Proceed?", "Confirm Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show($"Tiks veiktas šādas izmaiņas:\n" +
+                $"Nosaukums: {vehicle.Type} --> {textBoxVehicleType.Text}\n" +
+                $"Reģ. Nr.: {vehicle.PlateNumber} --> {textBoxPlateNumber.Text}\n" +
+                $"Reģ. Apl. Nr.: {vehicle.RegAplNr} --> {textBoxRegAplNr.Text}\n" +
+                $"OCTA Termiņš: {vehicle.OctaDueDate.ToShortDateString()} --> {dateTimeOcta.Value.ToShortDateString()}\n" +
+                $"TA Termiņš: {vehicle.TaDueDate.ToShortDateString()} --> {dateTimeTa.Value.ToShortDateString()}\n" +
+                $"Vai vēlaties turpināt?", "Apstiprināt Izmaiņas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
 
@@ -50,7 +50,7 @@ namespace A_Wheely_Great_App
                 vehicle.OctaDueDate = dateTimeOcta.Value;
                 vehicle.TaDueDate = dateTimeTa.Value;
 
-                MessageBox.Show("Changes were saved successfully!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Izmaiņas tika veiksmīgi saglabātas!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Save the updated list of vehicles to the JSON file
                 //Maybe save the single vehicle here and save to json on dashboard form?
 
@@ -63,7 +63,7 @@ namespace A_Wheely_Great_App
             }
             else if (result == DialogResult.No)
             {
-                MessageBox.Show("No changes were made", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Izmaiņas netika veiktas", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }

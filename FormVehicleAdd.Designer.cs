@@ -90,9 +90,9 @@
             this.LabelVehicleType.ForeColor = System.Drawing.Color.Silver;
             this.LabelVehicleType.Location = new System.Drawing.Point(22, 60);
             this.LabelVehicleType.Name = "LabelVehicleType";
-            this.LabelVehicleType.Size = new System.Drawing.Size(253, 37);
+            this.LabelVehicleType.Size = new System.Drawing.Size(397, 37);
             this.LabelVehicleType.TabIndex = 3;
-            this.LabelVehicleType.Text = "Input Vehicle Type";
+            this.LabelVehicleType.Text = "Transportlīdzekļa Nosaukums";
             this.LabelVehicleType.Click += new System.EventHandler(this.LabelVehicleType_Click);
             // 
             // LabelVehiclePlate
@@ -103,9 +103,9 @@
             this.LabelVehiclePlate.ForeColor = System.Drawing.Color.Silver;
             this.LabelVehiclePlate.Location = new System.Drawing.Point(22, 124);
             this.LabelVehiclePlate.Name = "LabelVehiclePlate";
-            this.LabelVehiclePlate.Size = new System.Drawing.Size(369, 37);
+            this.LabelVehiclePlate.Size = new System.Drawing.Size(287, 37);
             this.LabelVehiclePlate.TabIndex = 3;
-            this.LabelVehiclePlate.Text = "Input Vehicle Plate Number";
+            this.LabelVehiclePlate.Text = "Reģistrācijas Numurs";
             this.LabelVehiclePlate.Click += new System.EventHandler(this.LabelVehicleType_Click);
             // 
             // LabelVehicleRegAplNr
@@ -116,9 +116,9 @@
             this.LabelVehicleRegAplNr.ForeColor = System.Drawing.Color.Silver;
             this.LabelVehicleRegAplNr.Location = new System.Drawing.Point(22, 192);
             this.LabelVehicleRegAplNr.Name = "LabelVehicleRegAplNr";
-            this.LabelVehicleRegAplNr.Size = new System.Drawing.Size(330, 37);
+            this.LabelVehicleRegAplNr.Size = new System.Drawing.Size(362, 37);
             this.LabelVehicleRegAplNr.TabIndex = 3;
-            this.LabelVehicleRegAplNr.Text = "Input Vehicle Reg Apl Nr";
+            this.LabelVehicleRegAplNr.Text = "Reģistrācijas Apliecības Nr.";
             this.LabelVehicleRegAplNr.Click += new System.EventHandler(this.LabelVehicleType_Click);
             // 
             // LabelVehicleOctaDate
@@ -129,9 +129,9 @@
             this.LabelVehicleOctaDate.ForeColor = System.Drawing.Color.Silver;
             this.LabelVehicleOctaDate.Location = new System.Drawing.Point(22, 256);
             this.LabelVehicleOctaDate.Name = "LabelVehicleOctaDate";
-            this.LabelVehicleOctaDate.Size = new System.Drawing.Size(387, 37);
+            this.LabelVehicleOctaDate.Size = new System.Drawing.Size(273, 37);
             this.LabelVehicleOctaDate.TabIndex = 3;
-            this.LabelVehicleOctaDate.Text = "Input Vehicle OCTA Due Date";
+            this.LabelVehicleOctaDate.Text = "OCTA Beigu Datums";
             this.LabelVehicleOctaDate.Click += new System.EventHandler(this.LabelVehicleType_Click);
             // 
             // LabelVehicleTaDate
@@ -143,9 +143,9 @@
             this.LabelVehicleTaDate.ForeColor = System.Drawing.Color.Silver;
             this.LabelVehicleTaDate.Location = new System.Drawing.Point(22, 319);
             this.LabelVehicleTaDate.Name = "LabelVehicleTaDate";
-            this.LabelVehicleTaDate.Size = new System.Drawing.Size(350, 37);
+            this.LabelVehicleTaDate.Size = new System.Drawing.Size(378, 37);
             this.LabelVehicleTaDate.TabIndex = 3;
-            this.LabelVehicleTaDate.Text = "Input Vehicle TA Due Date";
+            this.LabelVehicleTaDate.Text = "Teh. Apskates Beigu Datums";
             this.LabelVehicleTaDate.Click += new System.EventHandler(this.LabelVehicleType_Click);
             // 
             // buttonAddVehicle
@@ -159,11 +159,11 @@
             this.buttonAddVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddVehicle.ForeColor = System.Drawing.Color.Honeydew;
-            this.buttonAddVehicle.Location = new System.Drawing.Point(316, 384);
+            this.buttonAddVehicle.Location = new System.Drawing.Point(274, 386);
             this.buttonAddVehicle.Name = "buttonAddVehicle";
-            this.buttonAddVehicle.Size = new System.Drawing.Size(187, 38);
+            this.buttonAddVehicle.Size = new System.Drawing.Size(259, 38);
             this.buttonAddVehicle.TabIndex = 5;
-            this.buttonAddVehicle.Text = "Add New Vehicle";
+            this.buttonAddVehicle.Text = "Pievienot Tranportlīdzekli";
             this.buttonAddVehicle.UseVisualStyleBackColor = false;
             this.buttonAddVehicle.Click += new System.EventHandler(this.button4_Click);
             // 

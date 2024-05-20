@@ -33,7 +33,7 @@ namespace A_Wheely_Great_App
 
             if (this.Controls.OfType<TextBox>().Any(t => string.IsNullOrEmpty(t.Text)))
             {
-                MessageBox.Show("Please fill the required fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);//Your textbox is empty
+                MessageBox.Show("Lūdzu aizpildiet visus laukus!", "Kļūda", MessageBoxButtons.OK, MessageBoxIcon.Error);//Your textbox is empty
             }
             else
             {
@@ -55,7 +55,7 @@ namespace A_Wheely_Great_App
                 var json = JsonConvert.SerializeObject(vehicles, Formatting.Indented);
                 File.WriteAllText("vehicles.json", json);
 
-                MessageBox.Show("Vehicle " + vehicle.Type + " added successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Transportlīdzeklis " + vehicle.Type + " pievienots veiksmīgi!", "Transportlīdzeklis pievienots", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Call the method on Form1
                 mainForm.ClickDashboardButton();
                 //formDashboard.LoadVehicles();

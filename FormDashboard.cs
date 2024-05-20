@@ -14,7 +14,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static A_Wheely_Great_App.Form1;
 using static A_Wheely_Great_App.FormDashboard;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using UITimer = System.Windows.Forms.Timer;
+using Microsoft.Toolkit.Uwp.Notifications;
+using System.Security.Cryptography;
+using Windows.Foundation;
+using Windows.System;
 
 namespace A_Wheely_Great_App
 {
@@ -114,8 +119,8 @@ namespace A_Wheely_Great_App
                 else
                 {
                     Console.WriteLine("No JSON file not found, prompting user for input");
-                    DialogResult result = MessageBox.Show("vehicles.json data file was not found. First Launch?\n" +
-                        "A new file will be generated in program's directory. \nApplication will be restarted. ", "No JSON Found",
+                    DialogResult result = MessageBox.Show("vehicles.json datu fails netika atrasts. Pirmo reizi izmantojat aplikāciju?\n" +
+                        "Jauns datu fails tiks izveidots aplikācijas atrašanās vietā. \nAplikācija tiks restartēta. ", "JSON Fails nav atrasts",
                         MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     if (result == DialogResult.OK)
                     {
@@ -152,7 +157,7 @@ namespace A_Wheely_Great_App
             {
                 Visible = true,
                 Icon = SystemIcons.Information,  // Set this to your app's icon
-                BalloonTipTitle = "Vehicle Maintenance Reminder",
+                BalloonTipTitle = "Transportlīdzekļa uzturēšanas atgādinājums",
                 
             };
 
@@ -165,6 +170,7 @@ namespace A_Wheely_Great_App
             timer.Tick += Timer_Tick;
 
             LoadVehicles();
+            toolTip1.SetToolTip(button4, " - Tiks izvadīta informācija par visiem transportlīdzekļiem, kuriem TA vai OCTA ir beigusies\r\n vai beigsies tuvāko 7 dienu laikā");
             Console.WriteLine("Checkin StartupCheck");
             Console.WriteLine($"{StartupCheck.ToString()}");
             //StartupCheck = true;
@@ -248,17 +254,27 @@ namespace A_Wheely_Great_App
         private void ShowNotificationOCTA(Vehicle vehicle)
         {
             Console.WriteLine($"Pushing OCTA Notification for vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr})");
-            notifyIcon.BalloonTipText = $"Vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) is due for OCTA on {vehicle.OctaDueDate:yyyy-MM-dd}.";
-            notifyIcon.ShowBalloonTip(5000); // Time in ms
-            notifyIcon.Visible = true;
+            //notifyIcon.BalloonTipText = $"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) OCTA Polise ir spēkā līdz {vehicle.OctaDueDate:dd-MM-yyyy}.";
+            //notifyIcon.ShowBalloonTip(5000); // Time in ms
+            //notifyIcon.Visible = true;
+            // Requires Microsoft.Toolkit.Uwp.Notifications NuGet package version 7.0 or greater
+            var iconUri = Path.GetFullPath(@"Resources\maintenance.png");
+            new ToastContentBuilder()
+                .AddArgument("action", "viewConversation")
+                //.AddArgument("conversationId", 9813)
+                .AddText("Transportlīdzekļa uzturēšanas atgādinājums")
+                .AddText($"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) OCTA Polise ir spēkā līdz {vehicle.OctaDueDate:dd-MM-yyyy}.")
+                .AddAppLogoOverride(new Uri(iconUri), ToastGenericAppLogoCrop.Circle)
+                .Show(); // Not seeing the Show() method? Make sure you have version 7.0, and if you're using .NET 6 (or later), then your TFM must be net6.0-windows10.0.17763.0 or greater
             // TODO: Add notifications for TA check - DONE
 
             var labelOCTA = new Label
             {
                 
-                Text = $"Vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) is due for OCTA on {vehicle.OctaDueDate:yyyy-MM-dd}.",
+                Text = $"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) OCTA Polise ir spēkā līdz {vehicle.OctaDueDate:dd-MM-yyyy}.",
                 AutoSize = true, Dock = DockStyle.Bottom,
                 Font = new Font("Sergoe UI", 12, FontStyle.Bold),
+                Padding = new Padding(2),
                 ForeColor = Color.Black,
                 //ForeColor = Color.FromArgb(64,64,64),
                 AutoEllipsis = true,
@@ -271,17 +287,27 @@ namespace A_Wheely_Great_App
         private void ShowNotificationTA(Vehicle vehicle)
         {
             Console.WriteLine($"Pushing TA Notification for vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr})");
-            notifyIcon.BalloonTipText = $"Vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) is due for TA on {vehicle.TaDueDate:yyyy-MM-dd}.";
-            notifyIcon.ShowBalloonTip(5000); // Time in ms
-            notifyIcon.Visible = true;
-
+            //notifyIcon.BalloonTipText = $"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) Tehniskā apskate ir spēkā līdz {vehicle.TaDueDate:dd-MM-yyyy}.";
+            //notifyIcon.ShowBalloonTip(5000); // Time in ms
+            //notifyIcon.Visible = true;
+            // Requires Microsoft.Toolkit.Uwp.Notifications NuGet package version 7.0 or greater
+            var iconUri =Path.GetFullPath(@"Resources\maintenance.png");
+            new ToastContentBuilder()
+                .AddArgument("action", "viewConversation")
+                //.AddArgument("conversationId", 9813)
+                .AddText("Transportlīdzekļa uzturēšanas atgādinājums")
+                .AddText($"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) Tehniskā apskate ir spēkā līdz {vehicle.TaDueDate:dd-MM-yyyy}.")
+            // Profile (app logo override) image
+                .AddAppLogoOverride(new Uri(iconUri), ToastGenericAppLogoCrop.Circle)
+                .Show(); // Not seeing the Show() method? Make sure you have version 7.0, and if you're using .NET 6 (or later), then your TFM must be net6.0-windows10.0.17763.0 or greater
 
             var labelTA = new Label
             {
-                Text = $"Vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) is due for TA on {vehicle.TaDueDate:yyyy-MM-dd}.",
+                Text = $"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) Tehniskā apskate ir spēkā līdz {vehicle.TaDueDate:dd-MM-yyyy}.",
                 AutoSize = true,
                 Dock = DockStyle.Bottom,
                 Font = new Font("Sergoe UI", 12, FontStyle.Bold),
+                Padding = new Padding(2),
                 //ForeColor = Color.FromArgb(64, 64, 64),
                 ForeColor = Color.Black,
                 AutoEllipsis = true,
@@ -289,6 +315,7 @@ namespace A_Wheely_Great_App
                 // Adjust the size of the label to fit the text
             };
             panelActiveReminder.Visible = true;
+            
             panelActiveReminder.Controls.Add(labelTA);
         }
         // Reminder end
@@ -403,7 +430,7 @@ namespace A_Wheely_Great_App
 
             // Find the vehicle in the list
             var vehicle = vehicles.Vehicles.FirstOrDefault(v => v.PlateNumber == id);
-            DialogResult result = MessageBox.Show($"Do you really want to delete vehicle {vehicle.Type} {vehicle.PlateNumber}?", "Delete Vehicle", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show($"Vai tiešām vēlaties dzēst transportlīdzekli {vehicle.Type} {vehicle.PlateNumber}?", "Dzēst Transportlīdzekli", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
                 // If the vehicle was found, remove it from the list
@@ -428,7 +455,7 @@ namespace A_Wheely_Great_App
             }
             else if (result == DialogResult.No)
             {
-                MessageBox.Show("Vehicle was not deleted", "Delete Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Transportlīdzeklis netika dzēsts", "Informācija", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
 
@@ -460,7 +487,7 @@ namespace A_Wheely_Great_App
             // Get the text from the search box
             string searchText = textBoxSearch.Text.ToLower();
             
-            if (searchText != "Search for Vehicles")
+            if (searchText != "Meklēt Transportlīdzekļus")
             {
                 var filteredVehicles = vehicles.Vehicles
                 .Where(v => v.Type.ToLower().Contains(searchText)
@@ -482,7 +509,7 @@ namespace A_Wheely_Great_App
 
         private void textBoxSearch_Enter(object sender, EventArgs e)
         {
-            if (textBoxSearch.Text == "Search for Vehicles")
+            if (textBoxSearch.Text == "Meklēt Transportlīdzekļus")
             {
                 textBoxSearch.Text = "";
             }
@@ -495,7 +522,7 @@ namespace A_Wheely_Great_App
                 textBoxSearch.TextChanged -= textBoxSearch_TextChanged;
 
                 // Set the placeholder text
-                textBoxSearch.Text = "Search for Vehicles";
+                textBoxSearch.Text = "Meklēt Transportlīdzekļus";
 
                 // Add the TextChanged event handler back
                 textBoxSearch.TextChanged += textBoxSearch_TextChanged;
@@ -511,6 +538,11 @@ namespace A_Wheely_Great_App
         private void panelActiveReminder_Click(object sender, EventArgs e)
         {
             ActiveControl = null;
+        }
+
+        private void LabelTitleReminder_MouseHover(object sender, EventArgs e)
+        {
+            
         }
     }
  
