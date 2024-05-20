@@ -14,7 +14,7 @@ using System.IO;
 using static A_Wheely_Great_App.FormDashboard;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
-using UITimer = System.Windows.Forms.Timer;
+
 
 namespace A_Wheely_Great_App
 {
@@ -57,8 +57,7 @@ namespace A_Wheely_Great_App
             //vehicles = JsonConvert.DeserializeObject<VehicleList>(json);
         //}
 
-        private NotifyIcon notifyIcon;
-        private UITimer timer;
+
         public void LoadVehicles()
         {
             try
@@ -92,31 +91,13 @@ namespace A_Wheely_Great_App
             PnlNav.Left = btnDashboard.Left;
             // btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
 
-            //Reminder Block Start
-            // Initialize NotifyIcon
-            notifyIcon = new NotifyIcon
-            {
-                Visible = true,
-                Icon = SystemIcons.Information,  // Set this to your app's icon
-                BalloonTipTitle = "Vehicle Maintenance Reminder"
-            };
-
-            // Initialize Timer
-            
-            timer = new UITimer
-            {
-                Interval = (int)TimeSpan.FromDays(1).TotalMilliseconds  // Set interval to 1 day
-            };
-            timer.Tick += Timer_Tick;
 
 
 
             // Load vehicles from JSON file
-            LoadVehicles();
+            //LoadVehicles();
 
-            // Start the timer
-            //timer.Start();
-            //Console.WriteLine("Maintenance Timer Set for 1 day");
+            
 
 
 
@@ -126,11 +107,17 @@ namespace A_Wheely_Great_App
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //formDashboard = new FormDashboard();
             btnDashboard.PerformClick();
-        }
+            //formDashboard.CheckMaintenanceDates();
 
+
+        }
+        //private Boolean FormLoaded = false;
+        public static FormDashboard FormDashboard_Vrb;
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+
             PnlNav.Height = btnDashboard.Height;
             PnlNav.Top = btnDashboard.Top;
             PnlNav.Left = btnDashboard.Left;
@@ -138,14 +125,22 @@ namespace A_Wheely_Great_App
 
             LabelTitle.Text = "Dashboard";
             this.PanelFormLoader.Controls.Clear();
-            FormDashboard FormDashboard_Vrb = new FormDashboard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            FormDashboard_Vrb.FormBorderStyle = FormBorderStyle.None;
+
+            if (FormDashboard_Vrb == null)
+            {
+                FormDashboard_Vrb = new FormDashboard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                FormDashboard_Vrb.FormBorderStyle = FormBorderStyle.None;
+            }
+
             this.PanelFormLoader.Controls.Add(FormDashboard_Vrb);
             FormDashboard_Vrb.Show();
 
-            formDashboard = new FormDashboard(); //keeping initialized to change stuff in it
+            //formDashboard = new FormDashboard(); //keeping initialized to change stuff in it
         }
-
+        public void ClickDashboardButton()
+        {
+            btnDashboard.PerformClick();
+        }
         public void button1_Click(object sender, EventArgs e)
         {
             PnlNav.Height = button1.Height;
@@ -154,11 +149,12 @@ namespace A_Wheely_Great_App
 
             LabelTitle.Text = "Add a Vehicle";
             this.PanelFormLoader.Controls.Clear();
-            FormVehicleAdd FormDashboard_Vrb = new FormVehicleAdd() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            FormVehicleAdd FormDashboard_Vrb = new FormVehicleAdd(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             FormDashboard_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.PanelFormLoader.Controls.Add(FormDashboard_Vrb);
             FormDashboard_Vrb.Show();
-
+            FormDashboard_Vrb.Refresh();
+            //button1.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -172,14 +168,31 @@ namespace A_Wheely_Great_App
         {
             PnlNav.Height = button3.Height;
             PnlNav.Top = button3.Top;
+            
             button3.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            PnlNav.Height = btnSettings.Height;
-            PnlNav.Top = btnSettings.Top;
-            btnSettings.BackColor = Color.FromArgb(46, 51, 73);
+            LabelTitle.Text = "About";
+            PnlNav.Height = btnAbout.Height;
+            PnlNav.Top = btnAbout.Top;
+            btnAbout.BackColor = Color.FromArgb(46, 51, 73);
+            this.PanelFormLoader.Controls.Clear();
+            var about = new Label
+            {
+                Text = "A Wheeeeely Great app\nCreated as part of my internship thingy c:\n© Rik Solutions 2024",
+                AutoSize = true,
+                Dock = DockStyle.Left,
+                Font = new Font("Sergoe UI", 15, FontStyle.Bold),
+                //Margin = (0, 0, 0);
+                ForeColor = Color.FromArgb(255, 255, 255),
+                AutoEllipsis = true,
+                //Tag = "maintenance"
+                // Adjust the size of the label to fit the text
+            };
+            
+            PanelFormLoader.Controls.Add(about);
         }
 
         private void btnDashboard_Leave(object sender, EventArgs e)
@@ -204,21 +217,21 @@ namespace A_Wheely_Great_App
 
         private void btnSettings_Leave(object sender, EventArgs e)
         {
-            btnSettings.BackColor = Color.FromArgb(24, 30, 54);
+            btnAbout.BackColor = Color.FromArgb(24, 30, 54);
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-        private void buttonMaximize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        //private void btnExit_Click(object sender, EventArgs e)
+        //{
+        //    Application.Exit();
+        //}
+        //private void buttonMaximize_Click(object sender, EventArgs e)
+        //{
+        //    this.WindowState = FormWindowState.Maximized;
+        //}
+        //private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
 
-        }
+        //}
 
         private void Form1_MouseDown(object sender, MouseEventArgs e) //Draggable Window
         {
@@ -238,10 +251,10 @@ namespace A_Wheely_Great_App
 
 
 
-        private void button4_Click(object sender, EventArgs e)
-        {
+        //private void button4_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void LabelTitle_MouseDown(object sender, MouseEventArgs e)
         {
@@ -250,53 +263,28 @@ namespace A_Wheely_Great_App
                 DraggableWindow();
             }
         }
-        //Reminder stuff
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            CheckMaintenanceDates();
-        }
 
-        private void CheckMaintenanceDates()
-        {
-            Console.WriteLine("Starting Maintenance Checks");
-            LoadVehicles();
-            Thread.Sleep(500);
-            var today = DateTime.Today;
-            foreach (var vehicle in vehicles.Vehicles)
-            {
-                var daysUntilMaintenance = (vehicle.OctaDueDate - today).TotalDays;
-                if (daysUntilMaintenance <= 7)
-                {
-                    ShowNotification(vehicle);
-                }
-            }
-        }
 
-        private void ShowNotification(Vehicle vehicle)
-        {
-            Console.WriteLine($"Pushing Notification for vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr})");
-            notifyIcon.BalloonTipText = $"Vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) is due for OCTA on {vehicle.OctaDueDate:yyyy-MM-dd}.";
-            notifyIcon.ShowBalloonTip(5000); // Time in ms
-            notifyIcon.Visible = true;
+        
 
-            
-            formDashboard.labelSubMaintenance1.Text = $"Vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) is due for OCTA on {vehicle.OctaDueDate:yyyy-MM-dd}.";
-            Console.WriteLine(formDashboard.labelSubMaintenance1.Text);
-            formDashboard.labelSubMaintenance1.Refresh();
-            Console.WriteLine("Label changed");
-        }
+        
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            CheckMaintenanceDates();
+            formDashboard.CheckMaintenanceDates();
         }
-        private void buttonTestLabel_Click(object sender, EventArgs e)
-        {
-            formDashboard.labelSubMaintenance1.Text = "Added from foreign form";
-            formDashboard.labelSubMaintenance1.Refresh();
-            Application.DoEvents();
 
-            //Move all reminder logic to Dashboard form/////
+        private void HeaderPanel_Click(object sender, EventArgs e)
+        {
+            formDashboard.ActiveControl = null;
         }
+        //private void buttonTestLabel_Click(object sender, EventArgs e)
+        //{
+        //    formDashboard.labelSubMaintenance1.Text = "Added from foreign form";
+        //    formDashboard.labelSubMaintenance1.Refresh();
+        //    Application.DoEvents();
+
+        //    //Move all reminder logic to Dashboard form/////
+        //}
     }
 }
