@@ -109,13 +109,20 @@ namespace A_Wheely_Great_App
                     Console.WriteLine("JSON File Exists, Loading.");
                     var json = File.ReadAllText("vehicles.json");
                     vehicles = JsonConvert.DeserializeObject<VehicleList>(json);
-                    Console.WriteLine(vehicles.Vehicles.Count + " vehicles have been loaded.");
-                    // Bind the list of vehicles to the DataGridView
-                    bindingSource.DataSource = vehicles.Vehicles; // Search Filter
-                    dataGridView1.DataSource = bindingSource;
-                    
-
+                    if (vehicles?.Vehicles != null)
+                    {
+                        Console.WriteLine(vehicles.Vehicles.Count + " vehicles have been loaded.");
+                        // Bind the list of vehicles to the DataGridView
+                        bindingSource.DataSource = vehicles.Vehicles; // Search Filter
+                        dataGridView1.DataSource = bindingSource;
+                    }
+                    else
+                    {
+                        Console.WriteLine("No vehicles found in the file.");
+                        vehicles = new VehicleList { Vehicles = new SortableBindingList<Vehicle>() };
+                    }
                 }
+
                 else
                 {
                     Console.WriteLine("No JSON file not found, prompting user for input");
@@ -143,6 +150,7 @@ namespace A_Wheely_Great_App
                     }
 
                 }
+
 
             }
             catch (Exception e)
@@ -213,7 +221,7 @@ namespace A_Wheely_Great_App
                 panelActiveReminder.Controls.Remove(control);
                 Console.WriteLine(control.Name + " Control cleared");
             }
-
+            panelActiveReminder.Visible=false;
         }
         public void CheckMaintenanceDates()
         {
@@ -404,6 +412,7 @@ namespace A_Wheely_Great_App
                 var json = JsonConvert.SerializeObject(vehicles, Formatting.Indented);
                 File.WriteAllText("vehicles.json", json);
                 //Console.WriteLine($"{vehicle.Type} has been deleted");
+                LoadVehicles();
                 //Update the DataGridView
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = vehicles.Vehicles;
@@ -543,6 +552,31 @@ namespace A_Wheely_Great_App
         private void LabelTitleReminder_MouseHover(object sender, EventArgs e)
         {
             
+        }
+
+        private void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Rebind the data source
+                bindingSource.DataSource = null;
+                bindingSource.DataSource = vehicles.Vehicles;
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = bindingSource;
+                dataGridView1.Refresh();
+                // Get the text from the search box
+                string searchText = textBoxSearch.Text.ToLower();
+
+                if (searchText != "Meklēt Transportlīdzekļus")
+                {
+                    var filteredVehicles = vehicles.Vehicles
+                    .Where(v => v.Type.ToLower().Contains(searchText)
+                        || v.PlateNumber.ToLower().Contains(searchText)
+                        || v.RegAplNr.ToLower().Contains(searchText))
+                    .ToList();
+                    bindingSource.DataSource = new BindingList<Vehicle>(filteredVehicles);
+                }
+            }
         }
     }
  
