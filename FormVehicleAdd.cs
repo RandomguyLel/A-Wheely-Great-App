@@ -37,6 +37,10 @@ namespace A_Wheely_Great_App
             }
             else
             {
+                if(dateTimeKasko.Checked==true) 
+                {
+
+                }
                 var vehicle = new Vehicle
                 {
                     Type = textBoxVehicleType.Text,
@@ -44,6 +48,10 @@ namespace A_Wheely_Great_App
                     RegAplNr = textBoxRegAplNr.Text,
                     OctaDueDate = dateTimeOcta.Value.Date,
                     TaDueDate = dateTimeTa.Value.Date,
+                    //Non-mandatory values up next
+                    KaskoDueDate = dateTimeKasko.Checked ? dateTimeKasko.Value.Date : (DateTime?)null,
+                    CmrDueDate = dateTimeCmr.Checked ? dateTimeCmr.Value.Date : (DateTime?)null,
+                    AtdDueDate = dateTimeAtd.Checked ? dateTimeAtd.Value.Date : (DateTime?)null
 
                 };
                 Console.WriteLine("Adding new vehicle: " + vehicle.Type + " " + vehicle.RegAplNr);

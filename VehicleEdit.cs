@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -28,6 +29,22 @@ namespace A_Wheely_Great_App
             dateTimeOcta.Value = vehicle.OctaDueDate;
             dateTimeTa.Value = vehicle.TaDueDate;
 
+            if (vehicle.KaskoDueDate.HasValue)
+            {
+                dateTimeKasko.Value = vehicle.KaskoDueDate.Value;
+                dateTimeKasko.Checked = true;
+            }
+            if (vehicle.CmrDueDate.HasValue)
+            {
+                dateTimeCmr.Value = vehicle.CmrDueDate.Value;
+                dateTimeCmr.Checked = true;
+            }
+            if (vehicle.AtdDueDate.HasValue)
+            {
+                dateTimeAtd.Value = vehicle.AtdDueDate.Value;
+                dateTimeAtd.Checked = true;
+            }
+
         }
 
         private void buttonEditVehicle_Click(object sender, EventArgs e)
@@ -39,6 +56,10 @@ namespace A_Wheely_Great_App
                 $"Reģ. Apl. Nr.: {vehicle.RegAplNr} --> {textBoxRegAplNr.Text}\n" +
                 $"OCTA Termiņš: {vehicle.OctaDueDate.ToShortDateString()} --> {dateTimeOcta.Value.ToShortDateString()}\n" +
                 $"TA Termiņš: {vehicle.TaDueDate.ToShortDateString()} --> {dateTimeTa.Value.ToShortDateString()}\n" +
+                $"Kasko Termiņš: {vehicle.KaskoDueDate.ToString()} --> {(dateTimeKasko.Checked ? dateTimeKasko.Value.Date : (DateTime?)null)}\n" +
+                $"CMR Termiņš: {vehicle.CmrDueDate.ToString()} --> {(dateTimeCmr.Checked ? dateTimeCmr.Value.Date : (DateTime?)null)}\n" +
+                $"ATD Termiņš: {vehicle.AtdDueDate.ToString()} --> {(dateTimeAtd.Checked ? dateTimeAtd.Value.Date : (DateTime?)null)}\n" +
+
                 $"Vai vēlaties turpināt?", "Apstiprināt Izmaiņas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
@@ -49,14 +70,14 @@ namespace A_Wheely_Great_App
                 vehicle.RegAplNr = textBoxRegAplNr.Text;
                 vehicle.OctaDueDate = dateTimeOcta.Value;
                 vehicle.TaDueDate = dateTimeTa.Value;
-
+                //Non-Mandatory Values
+                vehicle.KaskoDueDate = dateTimeKasko.Checked ? dateTimeKasko.Value.Date : (DateTime?)null;
+                vehicle.CmrDueDate = dateTimeCmr.Checked ? dateTimeCmr.Value.Date : (DateTime?)null;
+                vehicle.AtdDueDate = dateTimeAtd.Checked ? dateTimeAtd.Value.Date : (DateTime?)null;
                 MessageBox.Show("Izmaiņas tika veiksmīgi saglabātas!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Save the updated list of vehicles to the JSON file
-                //Maybe save the single vehicle here and save to json on dashboard form?
-
-                //var json = JsonConvert.SerializeObject(vehicle, Formatting.Indented);
-                //File.WriteAllText("vehicles.json", json);
-                //Console.WriteLine($"{vehicle.Type} has been updated");
+                // Stuff gets saved in FormDashboard after this form is closed
+                Console.WriteLine($"{vehicle.Type} has been updated");
                 // Close the form
                 this.Close();
 

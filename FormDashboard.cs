@@ -35,6 +35,9 @@ namespace A_Wheely_Great_App
             public string RegAplNr { get; set; }
             public DateTime OctaDueDate { get; set; }
             public DateTime TaDueDate { get; set; }
+            public DateTime? KaskoDueDate { get; set; }
+            public DateTime? CmrDueDate { get; set; }
+            public DateTime? AtdDueDate { get; set; }
 
             public int CompareTo(Vehicle other)
             {
@@ -248,6 +251,33 @@ namespace A_Wheely_Great_App
                 {
                     ShowNotificationTA(vehicle);
                 }
+                //TODO Process if there is no Date for the Thing to check
+
+                if (vehicle.KaskoDueDate.HasValue)
+                {
+                    var daysUntilKASKO = (vehicle.KaskoDueDate.Value - today).TotalDays;
+                    if (daysUntilKASKO <= 7)
+                    {
+                        ShowNotificationKasko(vehicle);
+                    }
+                }
+                if (vehicle.CmrDueDate.HasValue)
+                {
+                    var daysUntilCMR = (vehicle.CmrDueDate.Value - today).TotalDays;
+                    if (daysUntilCMR <= 7)
+                    {
+                        ShowNotificationCmr(vehicle);
+                    }
+                }
+                if (vehicle.AtdDueDate.HasValue)
+                {
+                    var daysUntilATD = (vehicle.AtdDueDate.Value - today).TotalDays;
+                    if (daysUntilATD <= 7)
+                    {
+                        ShowNotificationAtd(vehicle);
+                    }
+                }
+
 
             }
 
@@ -295,19 +325,14 @@ namespace A_Wheely_Great_App
         private void ShowNotificationTA(Vehicle vehicle)
         {
             Console.WriteLine($"Pushing TA Notification for vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr})");
-            //notifyIcon.BalloonTipText = $"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) Tehniskā apskate ir spēkā līdz {vehicle.TaDueDate:dd-MM-yyyy}.";
-            //notifyIcon.ShowBalloonTip(5000); // Time in ms
-            //notifyIcon.Visible = true;
-            // Requires Microsoft.Toolkit.Uwp.Notifications NuGet package version 7.0 or greater
             var iconUri =Path.GetFullPath(@"Resources\maintenance.png");
             new ToastContentBuilder()
                 .AddArgument("action", "viewConversation")
-                //.AddArgument("conversationId", 9813)
                 .AddText("Transportlīdzekļa uzturēšanas atgādinājums")
                 .AddText($"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) Tehniskā apskate ir spēkā līdz {vehicle.TaDueDate:dd-MM-yyyy}.")
             // Profile (app logo override) image
                 .AddAppLogoOverride(new Uri(iconUri), ToastGenericAppLogoCrop.Circle)
-                .Show(); // Not seeing the Show() method? Make sure you have version 7.0, and if you're using .NET 6 (or later), then your TFM must be net6.0-windows10.0.17763.0 or greater
+                .Show();
 
             var labelTA = new Label
             {
@@ -316,14 +341,95 @@ namespace A_Wheely_Great_App
                 Dock = DockStyle.Bottom,
                 Font = new Font("Sergoe UI", 12, FontStyle.Bold),
                 Padding = new Padding(2),
-                //ForeColor = Color.FromArgb(64, 64, 64),
                 ForeColor = Color.Black,
                 AutoEllipsis = true,
                 Tag = "maintenance"
-                // Adjust the size of the label to fit the text
             };
             panelActiveReminder.Visible = true;
             
+            panelActiveReminder.Controls.Add(labelTA);
+        }
+
+        // TODO: SETUP NEW DATE REMINDERS
+        private void ShowNotificationKasko(Vehicle vehicle)
+        {
+            Console.WriteLine($"Pushing KASKO Notification for vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr})");
+            var iconUri = Path.GetFullPath(@"Resources\maintenance.png");
+            new ToastContentBuilder()
+                .AddArgument("action", "viewConversation")
+                .AddText("Transportlīdzekļa uzturēšanas atgādinājums")
+                .AddText($"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) KASKO Polise ir spēkā līdz {vehicle.KaskoDueDate:dd-MM-yyyy}.")
+            // Profile (app logo override) image
+                .AddAppLogoOverride(new Uri(iconUri), ToastGenericAppLogoCrop.Circle)
+                .Show();
+
+            var labelTA = new Label
+            {
+                Text = $"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) KASKO Polise ir spēkā līdz {vehicle.KaskoDueDate:dd-MM-yyyy}",
+                AutoSize = true,
+                Dock = DockStyle.Bottom,
+                Font = new Font("Sergoe UI", 12, FontStyle.Bold),
+                Padding = new Padding(2),
+                ForeColor = Color.Black,
+                AutoEllipsis = true,
+                Tag = "maintenance"
+            };
+            panelActiveReminder.Visible = true;
+
+            panelActiveReminder.Controls.Add(labelTA);
+        }
+        private void ShowNotificationCmr(Vehicle vehicle)
+        {
+            Console.WriteLine($"Pushing CMR Notification for vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr})");
+            var iconUri = Path.GetFullPath(@"Resources\maintenance.png");
+            new ToastContentBuilder()
+                .AddArgument("action", "viewConversation")
+                .AddText("Transportlīdzekļa uzturēšanas atgādinājums")
+                .AddText($"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) CMR Polise ir spēkā līdz {vehicle.CmrDueDate:dd-MM-yyyy}.")
+            // Profile (app logo override) image
+                .AddAppLogoOverride(new Uri(iconUri), ToastGenericAppLogoCrop.Circle)
+                .Show();
+
+            var labelTA = new Label
+            {
+                Text = $"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) CMR Polise ir spēkā līdz {vehicle.CmrDueDate:dd-MM-yyyy}.",
+                AutoSize = true,
+                Dock = DockStyle.Bottom,
+                Font = new Font("Sergoe UI", 12, FontStyle.Bold),
+                Padding = new Padding(2),
+                ForeColor = Color.Black,
+                AutoEllipsis = true,
+                Tag = "maintenance"
+            };
+            panelActiveReminder.Visible = true;
+
+            panelActiveReminder.Controls.Add(labelTA);
+        }
+        private void ShowNotificationAtd(Vehicle vehicle)
+        {
+            Console.WriteLine($"Pushing ATD Notification for vehicle {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr})");
+            var iconUri = Path.GetFullPath(@"Resources\maintenance.png");
+            new ToastContentBuilder()
+                .AddArgument("action", "viewConversation")
+                .AddText("Transportlīdzekļa uzturēšanas atgādinājums")
+                .AddText($"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) ATD Licence ir spēkā līdz {vehicle.AtdDueDate:dd-MM-yyyy}.")
+            // Profile (app logo override) image
+                .AddAppLogoOverride(new Uri(iconUri), ToastGenericAppLogoCrop.Circle)
+                .Show();
+
+            var labelTA = new Label
+            {
+                Text = $"Transportlīdzeklim {vehicle.Type} ({vehicle.PlateNumber} {vehicle.RegAplNr}) ATD Licence ir spēkā līdz {vehicle.AtdDueDate:dd-MM-yyyy}.",
+                AutoSize = true,
+                Dock = DockStyle.Bottom,
+                Font = new Font("Sergoe UI", 12, FontStyle.Bold),
+                Padding = new Padding(2),
+                ForeColor = Color.Black,
+                AutoEllipsis = true,
+                Tag = "maintenance"
+            };
+            panelActiveReminder.Visible = true;
+
             panelActiveReminder.Controls.Add(labelTA);
         }
         // Reminder end
@@ -338,7 +444,7 @@ namespace A_Wheely_Great_App
                 return;
 
             //Adding Icons to Grid Buttons
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 8)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -351,7 +457,7 @@ namespace A_Wheely_Great_App
                 e.Handled = true;
             }
 
-            if (e.ColumnIndex == 6)
+            if (e.ColumnIndex == 9)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -399,9 +505,7 @@ namespace A_Wheely_Great_App
 
             // Find the vehicle in the list
             var vehicle = vehicles.Vehicles.FirstOrDefault(v => v.PlateNumber == id);
-            //TODO Remove initial confirmation window before editing
-            //DialogResult result = MessageBox.Show($"Do you really want to edit vehicle {vehicle.Type} {vehicle.PlateNumber}?"
-            //    , "Edit Vehicle", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
             if (vehicle != null)
             {
                 //Pop up new small edit form and somehow pass data to it, then save it and refresh whole list;
@@ -417,20 +521,7 @@ namespace A_Wheely_Great_App
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = vehicles.Vehicles;
             }
-            //if (result == DialogResult.Yes)
-            //{
-            //    // If the vehicle was found, remove it from the list
-               
 
-            //    else
-            //    {
-            //        Console.WriteLine($"No vehicle found with PlateNumber {id}.");
-            //    }
-            //}
-            //else if (result == DialogResult.No)
-            //{
-            //    MessageBox.Show("Vehicle was not edited", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
         }
 
         private void DeleteVehicle(string id)
