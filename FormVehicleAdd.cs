@@ -31,23 +31,20 @@ namespace A_Wheely_Great_App
         private void button4_Click(object sender, EventArgs e)
         {
 
-            if (this.Controls.OfType<TextBox>().Any(t => string.IsNullOrEmpty(t.Text)))
+            if (string.IsNullOrEmpty(textBoxPlateNumber.Text))
             {
-                MessageBox.Show("Lūdzu aizpildiet visus laukus!", "Kļūda", MessageBoxButtons.OK, MessageBoxIcon.Error);//Your textbox is empty
+                MessageBox.Show("Lūdzu ievadiet transportlīdzekļa reģistrācijas numuru!", "Kļūda", MessageBoxButtons.OK, MessageBoxIcon.Error);//Your textbox is empty
             }
             else
             {
-                if(dateTimeKasko.Checked==true) 
-                {
 
-                }
                 var vehicle = new Vehicle
                 {
                     Type = textBoxVehicleType.Text,
                     PlateNumber = textBoxPlateNumber.Text,
                     RegAplNr = textBoxRegAplNr.Text,
-                    OctaDueDate = dateTimeOcta.Value.Date,
-                    TaDueDate = dateTimeTa.Value.Date,
+                    OctaDueDate = dateTimeOcta.Checked ? dateTimeOcta.Value.Date : (DateTime?)null,
+                    TaDueDate = dateTimeTa.Checked ? dateTimeTa.Value.Date : (DateTime?)null,
                     //Non-mandatory values up next
                     KaskoDueDate = dateTimeKasko.Checked ? dateTimeKasko.Value.Date : (DateTime?)null,
                     CmrDueDate = dateTimeCmr.Checked ? dateTimeCmr.Value.Date : (DateTime?)null,

@@ -26,9 +26,20 @@ namespace A_Wheely_Great_App
             textBoxVehicleType.Text = vehicle.Type;
             textBoxPlateNumber.Text = vehicle.PlateNumber;
             textBoxRegAplNr.Text = vehicle.RegAplNr;
-            dateTimeOcta.Value = vehicle.OctaDueDate;
-            dateTimeTa.Value = vehicle.TaDueDate;
 
+
+            //dateTimeOcta.Value = vehicle.OctaDueDate;
+            //dateTimeTa.Value = vehicle.TaDueDate;
+            if (vehicle.OctaDueDate.HasValue)
+            {
+                dateTimeOcta.Value = vehicle.OctaDueDate.Value;
+                dateTimeOcta.Checked = true;
+            }
+            if (vehicle.TaDueDate.HasValue)
+            {
+                dateTimeTa.Value = vehicle.TaDueDate.Value;
+                dateTimeTa.Checked = true;
+            }
             if (vehicle.KaskoDueDate.HasValue)
             {
                 dateTimeKasko.Value = vehicle.KaskoDueDate.Value;
@@ -54,8 +65,8 @@ namespace A_Wheely_Great_App
                 $"Nosaukums: {vehicle.Type} --> {textBoxVehicleType.Text}\n" +
                 $"Reģ. Nr.: {vehicle.PlateNumber} --> {textBoxPlateNumber.Text}\n" +
                 $"Reģ. Apl. Nr.: {vehicle.RegAplNr} --> {textBoxRegAplNr.Text}\n" +
-                $"OCTA Termiņš: {vehicle.OctaDueDate.ToShortDateString()} --> {dateTimeOcta.Value.ToShortDateString()}\n" +
-                $"TA Termiņš: {vehicle.TaDueDate.ToShortDateString()} --> {dateTimeTa.Value.ToShortDateString()}\n" +
+                $"OCTA Termiņš: {vehicle.OctaDueDate.ToString()} --> {(dateTimeOcta.Checked ? dateTimeOcta.Value.Date : (DateTime?)null)}\n" +
+                $"TA Termiņš: {vehicle.TaDueDate.ToString()} --> {(dateTimeTa.Checked ? dateTimeTa.Value.Date : (DateTime?)null)}\n" +
                 $"Kasko Termiņš: {vehicle.KaskoDueDate.ToString()} --> {(dateTimeKasko.Checked ? dateTimeKasko.Value.Date : (DateTime?)null)}\n" +
                 $"CMR Termiņš: {vehicle.CmrDueDate.ToString()} --> {(dateTimeCmr.Checked ? dateTimeCmr.Value.Date : (DateTime?)null)}\n" +
                 $"ATD Termiņš: {vehicle.AtdDueDate.ToString()} --> {(dateTimeAtd.Checked ? dateTimeAtd.Value.Date : (DateTime?)null)}\n" +
@@ -68,8 +79,8 @@ namespace A_Wheely_Great_App
                 vehicle.Type = textBoxVehicleType.Text;
                 vehicle.PlateNumber = textBoxPlateNumber.Text;
                 vehicle.RegAplNr = textBoxRegAplNr.Text;
-                vehicle.OctaDueDate = dateTimeOcta.Value;
-                vehicle.TaDueDate = dateTimeTa.Value;
+                vehicle.OctaDueDate = dateTimeOcta.Checked ? dateTimeOcta.Value.Date : (DateTime?)null;
+                vehicle.TaDueDate = dateTimeTa.Checked ? dateTimeTa.Value.Date : (DateTime?)null;
                 //Non-Mandatory Values
                 vehicle.KaskoDueDate = dateTimeKasko.Checked ? dateTimeKasko.Value.Date : (DateTime?)null;
                 vehicle.CmrDueDate = dateTimeCmr.Checked ? dateTimeCmr.Value.Date : (DateTime?)null;

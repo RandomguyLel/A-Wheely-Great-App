@@ -51,10 +51,12 @@
             // 
             this.dateTimeTa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimeTa.CalendarMonthBackground = System.Drawing.SystemColors.InactiveBorder;
+            this.dateTimeTa.Checked = false;
             this.dateTimeTa.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeTa.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimeTa.Location = new System.Drawing.Point(501, 278);
             this.dateTimeTa.Name = "dateTimeTa";
+            this.dateTimeTa.ShowCheckBox = true;
             this.dateTimeTa.Size = new System.Drawing.Size(182, 34);
             this.dateTimeTa.TabIndex = 5;
             // 
@@ -62,10 +64,12 @@
             // 
             this.dateTimeOcta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimeOcta.CalendarMonthBackground = System.Drawing.SystemColors.InactiveBorder;
+            this.dateTimeOcta.Checked = false;
             this.dateTimeOcta.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeOcta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimeOcta.Location = new System.Drawing.Point(501, 215);
             this.dateTimeOcta.Name = "dateTimeOcta";
+            this.dateTimeOcta.ShowCheckBox = true;
             this.dateTimeOcta.Size = new System.Drawing.Size(182, 34);
             this.dateTimeOcta.TabIndex = 4;
             // 

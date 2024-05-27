@@ -33,8 +33,8 @@ namespace A_Wheely_Great_App
             public string Type { get; set; }
             public string PlateNumber { get; set; }
             public string RegAplNr { get; set; }
-            public DateTime OctaDueDate { get; set; }
-            public DateTime TaDueDate { get; set; }
+            public DateTime? OctaDueDate { get; set; }
+            public DateTime? TaDueDate { get; set; }
             public DateTime? KaskoDueDate { get; set; }
             public DateTime? CmrDueDate { get; set; }
             public DateTime? AtdDueDate { get; set; }
@@ -241,16 +241,24 @@ namespace A_Wheely_Great_App
             var today = DateTime.Today;
             foreach (var vehicle in vehicles.Vehicles) //Flags vehicles with due date less den 1 week
             {
-                var daysUntilOCTA = (vehicle.OctaDueDate - today).TotalDays;
-                if (daysUntilOCTA <= 7)
+                if (vehicle.OctaDueDate.HasValue)
                 {
-                    ShowNotificationOCTA(vehicle);
+                    var daysUntilOCTA = (vehicle.OctaDueDate.Value - today).TotalDays;
+                    if (daysUntilOCTA <= 7)
+                    {
+                        ShowNotificationOCTA(vehicle);
+                    }
                 }
-                var daysUntilTA = (vehicle.TaDueDate - today).TotalDays;
-                if (daysUntilTA <= 7)
+                
+                if (vehicle.TaDueDate.HasValue)
                 {
-                    ShowNotificationTA(vehicle);
+                    var daysUntilTA = (vehicle.TaDueDate.Value - today).TotalDays;
+                    if (daysUntilTA <= 7)
+                    {
+                        ShowNotificationTA(vehicle);
+                    }
                 }
+                
                 //TODO Process if there is no Date for the Thing to check
 
                 if (vehicle.KaskoDueDate.HasValue)
