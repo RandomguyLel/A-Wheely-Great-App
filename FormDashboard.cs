@@ -176,7 +176,7 @@ namespace A_Wheely_Great_App
 
             timer = new UITimer
             {
-                Interval = (int)TimeSpan.FromDays(1).TotalMilliseconds  // Set interval to 1 day
+                Interval = (int)TimeSpan.FromHours(12).TotalMilliseconds  // Set interval to 12 hours
             };
             timer.Tick += Timer_Tick;
 
@@ -286,6 +286,11 @@ namespace A_Wheely_Great_App
         private void Timer_Tick(object sender, EventArgs e)
         {
             CheckMaintenanceDates();
+            timer = new UITimer
+            {
+                Interval = (int)TimeSpan.FromHours(12).TotalMilliseconds  // Set interval to 12 hours
+            };
+            timer.Tick += Timer_Tick;
         }
 
 
