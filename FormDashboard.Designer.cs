@@ -33,6 +33,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plateNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regAplNrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.octaDueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taDueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kaskoDueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmrDueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.atdDueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GridButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.GridButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.vehiclesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vehicleListBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -46,16 +56,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plateNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regAplNrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.octaDueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taDueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kaskoDueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmrDueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.atdDueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GridButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.GridButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
@@ -127,6 +127,85 @@
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting_1);
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Transportlīdzeklis";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // plateNumberDataGridViewTextBoxColumn
+            // 
+            this.plateNumberDataGridViewTextBoxColumn.DataPropertyName = "PlateNumber";
+            this.plateNumberDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.plateNumberDataGridViewTextBoxColumn.HeaderText = "Tr. Reģ. Nr.";
+            this.plateNumberDataGridViewTextBoxColumn.Name = "plateNumberDataGridViewTextBoxColumn";
+            this.plateNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // regAplNrDataGridViewTextBoxColumn
+            // 
+            this.regAplNrDataGridViewTextBoxColumn.DataPropertyName = "RegAplNr";
+            this.regAplNrDataGridViewTextBoxColumn.FillWeight = 90F;
+            this.regAplNrDataGridViewTextBoxColumn.HeaderText = "Reģ.Apl.Nr.";
+            this.regAplNrDataGridViewTextBoxColumn.Name = "regAplNrDataGridViewTextBoxColumn";
+            this.regAplNrDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // octaDueDateDataGridViewTextBoxColumn
+            // 
+            this.octaDueDateDataGridViewTextBoxColumn.DataPropertyName = "OctaDueDate";
+            this.octaDueDateDataGridViewTextBoxColumn.FillWeight = 85F;
+            this.octaDueDateDataGridViewTextBoxColumn.HeaderText = "OCTA Polise";
+            this.octaDueDateDataGridViewTextBoxColumn.Name = "octaDueDateDataGridViewTextBoxColumn";
+            this.octaDueDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // taDueDateDataGridViewTextBoxColumn
+            // 
+            this.taDueDateDataGridViewTextBoxColumn.DataPropertyName = "TaDueDate";
+            this.taDueDateDataGridViewTextBoxColumn.FillWeight = 85F;
+            this.taDueDateDataGridViewTextBoxColumn.HeaderText = "Teh. Apskate";
+            this.taDueDateDataGridViewTextBoxColumn.Name = "taDueDateDataGridViewTextBoxColumn";
+            this.taDueDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kaskoDueDateDataGridViewTextBoxColumn
+            // 
+            this.kaskoDueDateDataGridViewTextBoxColumn.DataPropertyName = "KaskoDueDate";
+            this.kaskoDueDateDataGridViewTextBoxColumn.FillWeight = 85F;
+            this.kaskoDueDateDataGridViewTextBoxColumn.HeaderText = "KASKO Polise";
+            this.kaskoDueDateDataGridViewTextBoxColumn.Name = "kaskoDueDateDataGridViewTextBoxColumn";
+            this.kaskoDueDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cmrDueDateDataGridViewTextBoxColumn
+            // 
+            this.cmrDueDateDataGridViewTextBoxColumn.DataPropertyName = "CmrDueDate";
+            this.cmrDueDateDataGridViewTextBoxColumn.FillWeight = 85F;
+            this.cmrDueDateDataGridViewTextBoxColumn.HeaderText = "CMR Polise";
+            this.cmrDueDateDataGridViewTextBoxColumn.Name = "cmrDueDateDataGridViewTextBoxColumn";
+            this.cmrDueDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // atdDueDateDataGridViewTextBoxColumn
+            // 
+            this.atdDueDateDataGridViewTextBoxColumn.DataPropertyName = "AtdDueDate";
+            this.atdDueDateDataGridViewTextBoxColumn.FillWeight = 85F;
+            this.atdDueDateDataGridViewTextBoxColumn.HeaderText = "ATD Licence";
+            this.atdDueDateDataGridViewTextBoxColumn.Name = "atdDueDateDataGridViewTextBoxColumn";
+            this.atdDueDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // GridButtonEdit
+            // 
+            this.GridButtonEdit.FillWeight = 25F;
+            this.GridButtonEdit.HeaderText = "";
+            this.GridButtonEdit.Name = "GridButtonEdit";
+            this.GridButtonEdit.ReadOnly = true;
+            this.GridButtonEdit.Text = "Edit";
+            // 
+            // GridButtonDelete
+            // 
+            this.GridButtonDelete.FillWeight = 25F;
+            this.GridButtonDelete.HeaderText = "";
+            this.GridButtonDelete.Name = "GridButtonDelete";
+            this.GridButtonDelete.ReadOnly = true;
+            this.GridButtonDelete.Text = "Delete";
             // 
             // vehiclesBindingSource1
             // 
@@ -268,85 +347,6 @@
             // 
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = " - Veikt pārbaudi visiem transportlīdzekļiem";
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Transportlīdzeklis";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // plateNumberDataGridViewTextBoxColumn
-            // 
-            this.plateNumberDataGridViewTextBoxColumn.DataPropertyName = "PlateNumber";
-            this.plateNumberDataGridViewTextBoxColumn.FillWeight = 80F;
-            this.plateNumberDataGridViewTextBoxColumn.HeaderText = "Tr. Reģ. Nr.";
-            this.plateNumberDataGridViewTextBoxColumn.Name = "plateNumberDataGridViewTextBoxColumn";
-            this.plateNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // regAplNrDataGridViewTextBoxColumn
-            // 
-            this.regAplNrDataGridViewTextBoxColumn.DataPropertyName = "RegAplNr";
-            this.regAplNrDataGridViewTextBoxColumn.FillWeight = 90F;
-            this.regAplNrDataGridViewTextBoxColumn.HeaderText = "Reģ.Apl.Nr.";
-            this.regAplNrDataGridViewTextBoxColumn.Name = "regAplNrDataGridViewTextBoxColumn";
-            this.regAplNrDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // octaDueDateDataGridViewTextBoxColumn
-            // 
-            this.octaDueDateDataGridViewTextBoxColumn.DataPropertyName = "OctaDueDate";
-            this.octaDueDateDataGridViewTextBoxColumn.FillWeight = 85F;
-            this.octaDueDateDataGridViewTextBoxColumn.HeaderText = "OCTA Polise";
-            this.octaDueDateDataGridViewTextBoxColumn.Name = "octaDueDateDataGridViewTextBoxColumn";
-            this.octaDueDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // taDueDateDataGridViewTextBoxColumn
-            // 
-            this.taDueDateDataGridViewTextBoxColumn.DataPropertyName = "TaDueDate";
-            this.taDueDateDataGridViewTextBoxColumn.FillWeight = 85F;
-            this.taDueDateDataGridViewTextBoxColumn.HeaderText = "Teh. Apskate";
-            this.taDueDateDataGridViewTextBoxColumn.Name = "taDueDateDataGridViewTextBoxColumn";
-            this.taDueDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kaskoDueDateDataGridViewTextBoxColumn
-            // 
-            this.kaskoDueDateDataGridViewTextBoxColumn.DataPropertyName = "KaskoDueDate";
-            this.kaskoDueDateDataGridViewTextBoxColumn.FillWeight = 85F;
-            this.kaskoDueDateDataGridViewTextBoxColumn.HeaderText = "KASKO Polise";
-            this.kaskoDueDateDataGridViewTextBoxColumn.Name = "kaskoDueDateDataGridViewTextBoxColumn";
-            this.kaskoDueDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cmrDueDateDataGridViewTextBoxColumn
-            // 
-            this.cmrDueDateDataGridViewTextBoxColumn.DataPropertyName = "CmrDueDate";
-            this.cmrDueDateDataGridViewTextBoxColumn.FillWeight = 85F;
-            this.cmrDueDateDataGridViewTextBoxColumn.HeaderText = "CMR Polise";
-            this.cmrDueDateDataGridViewTextBoxColumn.Name = "cmrDueDateDataGridViewTextBoxColumn";
-            this.cmrDueDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // atdDueDateDataGridViewTextBoxColumn
-            // 
-            this.atdDueDateDataGridViewTextBoxColumn.DataPropertyName = "AtdDueDate";
-            this.atdDueDateDataGridViewTextBoxColumn.FillWeight = 85F;
-            this.atdDueDateDataGridViewTextBoxColumn.HeaderText = "ATD Licence";
-            this.atdDueDateDataGridViewTextBoxColumn.Name = "atdDueDateDataGridViewTextBoxColumn";
-            this.atdDueDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // GridButtonEdit
-            // 
-            this.GridButtonEdit.FillWeight = 25F;
-            this.GridButtonEdit.HeaderText = "";
-            this.GridButtonEdit.Name = "GridButtonEdit";
-            this.GridButtonEdit.ReadOnly = true;
-            this.GridButtonEdit.Text = "Edit";
-            // 
-            // GridButtonDelete
-            // 
-            this.GridButtonDelete.FillWeight = 25F;
-            this.GridButtonDelete.HeaderText = "";
-            this.GridButtonDelete.Name = "GridButtonDelete";
-            this.GridButtonDelete.ReadOnly = true;
-            this.GridButtonDelete.Text = "Delete";
             // 
             // FormDashboard
             // 
