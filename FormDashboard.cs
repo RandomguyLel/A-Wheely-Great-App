@@ -164,13 +164,13 @@ namespace A_Wheely_Great_App
             }
             //Reminder Block Start
             // Initialize NotifyIcon
-            notifyIcon = new NotifyIcon
-            {
-                Visible = true,
-                Icon = SystemIcons.Information,  // Set this to your app's icon
-                BalloonTipTitle = "Transportlīdzekļa uzturēšanas atgādinājums",
+            //notifyIcon = new NotifyIcon
+            //{
+            //    Visible = true,
+            //    Icon = SystemIcons.Information,  // Set this to your app's icon
+            //    BalloonTipTitle = "Transportlīdzekļa uzturēšanas atgādinājums",
                 
-            };
+            //};
 
             // Initialize Timer
 
